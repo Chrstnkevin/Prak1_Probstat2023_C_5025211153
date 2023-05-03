@@ -12,6 +12,16 @@ NRP   : 5025211153
    * [No 1D](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#d-berapa-probabilitas-bahwa-tiga-atau-lebih-bayi-di-antaranya-berjenis-kelamin-laki-laki)
    * [No 1E](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#e-berapa-nilai-harapan-dan-simpangan-baku-banyak-bayi-laki-laki)
    * [No 1F](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#f-gambarkan-histogram-pendistribusian-banyak-bayi-laki-laki)
+
+* [Soal No2](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#soal-no-2)
+   * [No 2A](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#a-bagaimana-pendistribusian-banyak-kematian-karena-kanker-tulang-tentukan-distribusi-dengan-parameter-yang-sesuai)
+   * [No 2B](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#b-ada-4-kematian-akibat-kanker-tulang-yang-dilaporkan-di-kalangan-pekerja-pabrik-ban-apakah-itu-peristiwa-yang-tidak-biasa-hitung-probabilitas-berdasarkan-distribusi-yang-telah-dipilih)
+   * [No 2C](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#c-berapa-peluang-paling-banyak-4-kematian-akibat-kanker-tulang)
+   * [No 2D](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#d-berapa-peluang-lebih-dari-4-kematian-akibat-kanker-tulang)
+   * [No 2E](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#e-berdasarkan-distribusi-yang-telah-dipilih-berapakah-nilai-harapan-dan-standar-deviasi-banyak-kematian-akibat-kanker-tulang-untuk-pekerja-pabrik-ban)
+   * [No 2F](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#f-gambarkan-histogram-pendistribusian-banyak-banyak-kematian-akibat-kanker-tulang-untuk-pekerja-pabrik-ban)
+   * [No 2G](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#g--gunakan-simulasi-untuk-memeriksa-hasil-sebelumnya)
+   * [No 2H](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#h-jelaskan-banyak-kematian-akibat-kanker-tulang-berdasarkan-simulasi-anda-bandingkan-jawaban-pada-pertanyaan-2d-dengan-hasil-simulasi-anda)
     
 ## Soal No 1
 
@@ -261,8 +271,4 @@ prob_max_4 <- n_max_4 / n_sim
 
 
 ##### H. Jelaskan banyak kematian akibat kanker tulang berdasarkan simulasi Anda. Bandingkan jawaban pada pertanyaan 2d dengan hasil simulasi Anda.
-Kita akan membuat simulasi dengan distribusi Poisson. Simulasi ini akan menampilkan 4 kematian, >4 kematian dan paling banyak terjadi 4 kematian. Untuk memeriksa hasil sebelumnya, kita dapat melakukan simulasi dengan menggunakan fungsi rpois()
-
-```
 Berdasarkan simulasi, 12.1% kasus memiliki 4 atau lebih kematian akibat kanker tulang, sedangkan menggunakan fungsi ppois hanya 0.000004565562%. Proporsi kasus dengan 4 atau kurang kematian akibat kanker tulang adalah 96.3% berdasarkan simulasi dan 99.99999999999999% berdasarkan fungsi ppois. Meski terdapat perbedaan, hal tersebut tidak signifikan karena jumlah simulasi yang dilakukan masih sedikit. Semakin banyak simulasi, hasilnya akan semakin mendekati perhitungan menggunakan fungsi ppois.
-```
