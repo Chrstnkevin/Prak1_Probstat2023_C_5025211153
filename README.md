@@ -23,6 +23,12 @@ NRP   : 5025211153
    * [No 2G](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#g--gunakan-simulasi-untuk-memeriksa-hasil-sebelumnya)
    * [No 2H](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#h-jelaskan-banyak-kematian-akibat-kanker-tulang-berdasarkan-simulasi-anda-bandingkan-jawaban-pada-pertanyaan-2d-dengan-hasil-simulasi-anda)
     
+* [Soal No3](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#soal-no-3)
+   * [No 3A](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#a-fungsi-probabilitas-dari-distribusi-chi-square)
+   * [No 3B](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#b-histogram-dari-distribusi-chi-square-dengan-500-data-acak)
+   * [No 3C](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#c-nilai-rataan-%CE%BC-dan-varian-%CF%83-dari-distribusi-chi-square)
+
+
 ## Soal No 1
 
 Probabilitas seorang bayi yang baru lahir berjenis kelamin laki-laki adalah 0,488.
@@ -272,3 +278,57 @@ prob_max_4 <- n_max_4 / n_sim
 
 ##### H. Jelaskan banyak kematian akibat kanker tulang berdasarkan simulasi Anda. Bandingkan jawaban pada pertanyaan 2d dengan hasil simulasi Anda.
 Berdasarkan simulasi, 12.1% kasus memiliki 4 atau lebih kematian akibat kanker tulang, sedangkan menggunakan fungsi ppois hanya 0.000004565562%. Proporsi kasus dengan 4 atau kurang kematian akibat kanker tulang adalah 96.3% berdasarkan simulasi dan 99.99999999999999% berdasarkan fungsi ppois. Meski terdapat perbedaan, hal tersebut tidak signifikan karena jumlah simulasi yang dilakukan masih sedikit. Semakin banyak simulasi, hasilnya akan semakin mendekati perhitungan menggunakan fungsi ppois.
+
+
+
+
+
+## Soal No 3
+Diketahui nilai x = 3 dan v = 10. Tentukan:
+
+##### A. Fungsi probabilitas dari distribusi Chi-Square.
+Distribusi Chi-Square digunakan dalam uji hipotesis dan analisis regresi. Distribusi ini mengasumsikan data yang terdistribusi secara normal dan memperhitungkan variasi data
+
+```
+dchisq(3, 10, ncp = 0, log = FALSE)
+```
+Penjelasan dari codingan tersebut:
+- `dchisq()` digunakan untuk menghitung fungsi probabilitas dari distribusi Chi-Square  
+- argumen pertama adalah nilai `x` 
+- argumen kedua adalah derajat kebebasan `v` 
+- argumen ketiga adalah nilai non-sentralitas (non-centrality parameter) yang biasanya diatur ke 0 jika tidak ada nilai non-sentralitas yang spesifik yang diberikan. 
+- argumen keempat adalah log yang menentukan apakah output dihasilkan dalam logaritma natural atau tidak. Dalam hal ini, kita ingin mendapatkan output dalam bentuk probabilitas, oleh karena itu kita atur nilai log menjadi FALSE. 
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/235948693-ff33d61f-45a3-419d-834a-9dfdd2793a42.png)
+
+
+##### B. Histogram dari distribusi Chi-Square dengan 500 data acak
+kita akan membuat histogram menggunakan distribusi Chi-Square dengan x = 500
+```
+data = rchisq(n = 500, df = 10)
+hist(data, main = "Distribusi Chi-Square 500 Data Acak", xlab = "Nilai X", ylab = "Frekuensi")
+```
+Penjelasan dari codingan tersebut:
+- `rchisq` Kode ini digunakan untuk menghasilkan 500 data acak dari distribusi Chi-Square dengan derajat kebebasan 10 menggunakan fungsi rchisq(). Argumen pertama n adalah jumlah data yang ingin dihasilkan dan argumen kedua adalah derajat kebebasan distribusi Chi-Square.
+- `hist` digunakan untuk membuat histogram dari data yang dihasilkan. Argumen pertama adalah data yang ingin diplot, sedangkan argumen kedua main adalah judul utama dari histogram, argumen ketiga xlab adalah label sumbu x, dan argumen keempat ylab adalah label sumbu y.
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/235949920-2847eef2-d9fc-4909-87f8-c4a1e338efcd.png)
+
+
+##### C. Nilai rataan (μ) dan varian (σ²) dari distribusi Chi-Square.
+Untuk distribusi Chi-Square dengan derajat kebebasan v, nilai rata-ratanya adalah v dan nilai variansinya adalah 2v. Oleh karena itu, jika kita ingin menghitung nilai rata-rata dan variansi dari distribusi Chi-Square dengan derajat kebebasan 10 menggunakan R, kita dapat menggunakan fungsi mean() dan var()
+
+```
+data = rchisq(n = 10000, 10)
+rataan = mean(data)
+varian = var(data)
+```
+Penjelasan dari codingan tersebut:
+- Menentukan nilai derajat kebebasan distribusi Chi-Square v, dan menghasilkan 10000 data acak menggunakan fungsi `rchisq()` yang disimpan dalam variabel data.
+- Menghitung nilai rata-rata dari data menggunakan fungsi mean() dan menyimpannya dalam variabel rataan. 
+- Menghitung nilai variansi dari data menggunakan fungsi var() dan menyimpannya dalam variabel varian
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/235951535-a37d6b1f-78a2-42fb-8c3d-e7670bac6162.png)
