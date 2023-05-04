@@ -28,6 +28,10 @@ NRP   : 5025211153
    * [No 3B](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#b-histogram-dari-distribusi-chi-square-dengan-500-data-acak)
    * [No 3C](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#c-nilai-rataan-%CE%BC-dan-varian-%CF%83-dari-distribusi-chi-square)
 
+* [Soal No4](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#soal-no-4)
+   * [No 4A](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#a-fungsi-probabilitas-dari-distribusi-normal-px1--x--x2-hitung-z-scorenya-dan-plot-data-bangkitan-acaknya-dalam-bentuk-grafik)
+   * [No 4B](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#b-gambarkan-histogram-dari-distribusi-normal-dengan-breaks-50)
+   * [No 4C](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#c-nilai-varian-%CF%83-dari-hasil-data-bangkitan-acak-distribusi-normal)
 
 ## Soal No 1
 
@@ -332,3 +336,106 @@ Penjelasan dari codingan tersebut:
 
 ###### OUTPUT
 ![image](https://user-images.githubusercontent.com/97864068/235951535-a37d6b1f-78a2-42fb-8c3d-e7670bac6162.png)
+
+
+
+
+
+## Soal No 4
+Diketahui data bangkitan acak sebanyak 100 dengan mean = 45 dan sd = 5.
+Tentukan:
+
+
+##### A. Fungsi probabilitas dari distribusi Normal P(X1 ≤ x ≤ X2), hitung z-scorenya dan plot data bangkitan acaknya dalam bentuk grafik. 
+> Petunjuk (gunakan fungsi plot()).
+> Keterangan:
+X1 = Bilangan bulat terdekat di bawah rata-rata
+X2 = Bilangan bulat terdekat di atas rata-rata
+Contoh data:
+11
+1,2,4,2,6,3,10,11,5,3,6,8
+rata-rata = 5.083333
+X1 = 5
+X2 = 6
+
+Fungsi probabilitas dari distribusi Normal P(X1 ≤ x ≤ X2) adalah peluang bahwa variabel acak berdistribusi normal akan jatuh di antara nilai X1 dan X2. Untuk menghitung z-score, pertama-tama kita perlu menghitung nilai mean dan standar deviasi dari sampel data.
+```
+#4A data bangkitan acak dalam bentuk grafik
+# Tentukan rata-rata, standar deviasi, X1, dan X2
+rataan = 45
+standar_deviasi = 5
+X1 = floor(rataan)
+X2 = ceiling(rataan)
+# Hitung z-score untuk X1 dan X2
+z1 = (X1 - rataan) / standar_deviasi
+z2 = (X2 - rataan) / standar_deviasi
+
+# Hitung probabilitas P(X1 ≤ x ≤ X2)
+prob = pnorm(X2, mean = rataan, sd = standar_deviasi) - pnorm(X1, mean = rataan, sd = standar_deviasi)
+
+# Cetak hasil
+cat("Probabilitas P(X1 ≤ x ≤ X2) =", prob, "\n")
+cat("Z-score untuk X1 =", z1, "\n")
+cat("Z-score untuk X2 =", z2, "\n")
+
+# Bangkitkan data acak
+set.seed(123)
+data = rnorm(1000, mean = rataan, sd = standar_deviasi)
+
+# Plot data 
+plot(data, type = "l", lwd = 2, col = "blue", xlab = "Observasi", ylab = "Nilai")
+abline(v = X1, col = "red", lty = 2, lwd = 2)
+abline(v = X2, col = "red", lty = 2, lwd = 2)
+text(X1, par("usr")[4], pos = 3, col = "red", paste("X1 = ", X1), xpd = TRUE)
+text(X2, par("usr")[4], pos = 3, col = "red", paste("X2 = ", X2), xpd = TRUE)
+text(par("usr")[2], par("usr")[4] - 0.1, pos = 1, col = "black", paste("Probabilitas P(X1 ≤ x ≤ X2) = ", prob))
+
+```
+Penjelasan dari codingan tersebut:
+- Variabel `X1` dan `X2` digunakan untuk menentukan bilangan bulat terdekat di bawah dan di atas rata-rata, yang akan digunakan untuk menentukan fungsi probabilitas.
+- Variabel `z1` dan `z2` digunakan untuk menghitung z-score untuk X1 dan X2, yang dapat digunakan untuk menentukan letak nilai tersebut dalam distribusi normal standar.
+-  Variabel `prob` digunakan untuk menghitung probabilitas P(X1 ≤ x ≤ X2), yaitu probabilitas dari data yang jatuh di antara X1 dan X2. Fungsi `pnorm()` digunakan untuk menghitung probabilitas dari distribusi normal dengan nilai mean dan sd yang telah ditentukan.
+- `plot(data, type = "l", lwd = 2, col = "blue", xlab = "Observasi", ylab = "Nilai"):` Fungsi plot() digunakan untuk memplot data dalam bentuk grafik garis (type = "l"), dengan lebar garis (lwd) sebesar 2 dan warna garis (col) biru. Parameter xlab dan ylab digunakan untuk memberi label pada sumbu x dan y.
+- `abline(v = X1, col = "red", lty = 2, lwd = 2):` Fungsi abline() digunakan untuk menambahkan garis vertikal pada nilai X1. Parameter col digunakan untuk mengatur warna garis menjadi merah (red), lty untuk mengatur jenis garis menjadi putus-putus (2), dan lwd untuk mengatur lebar garis.
+- `text(X1, par("usr")[4], pos = 3, col = "red", paste("X1 = ", X1), xpd = TRUE):` Fungsi text() digunakan untuk menampilkan nilai X1 pada grafik. Parameter pos digunakan untuk mengatur posisi teks (3 berarti di atas titik koordinat), col digunakan untuk mengatur warna teks menjadi merah (red), dan xpd digunakan untuk mengatur agar teks tetap ditampilkan saat melewati batas grafik.
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236158330-1bc4cfbb-6e28-483a-b8ad-37237a4b48e0.png)
+
+
+##### B. Gambarkan histogram dari distribusi Normal dengan breaks 50
+kita bisa menggunakan rnorm untuk mendapatkan sampel acak pada distribusi normal
+
+```
+# Generate data acak dari distribusi normal
+data = rnorm(100, mean = 45, sd = 5)
+
+# Menggambarkan histogram dengan 50 breaks
+hist(data, breaks = 50, main = "Histogram Distribusi Normal", xlab = "Nilai", ylab = "Frekuensi", col = "purple")
+```
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236159729-ab49f51c-5b80-4c9e-ab2c-91d4bb2a218a.png)
+
+
+##### C. Nilai varian (σ²) dari hasil data bangkitan acak distribusi Normal.
+Untuk menghitung variansi (σ²) dari hasil data bangkitan acak distribusi Normal, kita dapat menggunakan fungsi var()
+
+```
+# Generate data acak dari distribusi normal
+data = rnorm(100, mean = 45, sd = 5)
+# Menghitung variansi dari data acak
+variasi = var(data)
+variasi
+```
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236160795-ef1ef9b5-10e5-4f82-9bdf-340893148527.png)
+
+
+
+
+
+
+## Soal No 5
+Kerjakanlah menggunakan distribusi T-Student
