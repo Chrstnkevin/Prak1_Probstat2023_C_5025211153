@@ -33,6 +33,16 @@ NRP   : 5025211153
    * [No 4B](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#b-gambarkan-histogram-dari-distribusi-normal-dengan-breaks-50)
    * [No 4C](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#c-nilai-varian-%CF%83-dari-hasil-data-bangkitan-acak-distribusi-normal)
 
+* [Soal No5](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#soal-no-5)
+   * [No 5A](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#a-berapa-probabilitas-terjadinya-suatu-peristiwa-acak-x-kurang-dari--234-dengan-6-derajat-kebebasan)
+   * [No 5B](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#b-berapa-probabilitas-terjadinya-suatu-peristiwa-acak-x-lebih-dari-134-dengan-6-derajat-kebebasan)
+   * [No 5C](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#c-berapa-probabilitas-terjadinya-suatu-peristiwa-acak-x-kurang-dari--123-atau-lebih-besar-dari-123-dengan-3-derajat-kebebasan)
+   * [No 5D](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#d-berapa-probabilitas-terjadinya-suatu-peristiwa-acak-x-berada-di-antara--094dan-094-dengan-14-derajat-kebebasan)
+   * [No 5E](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#e--berapa-nilai-t-score-dengan-5-derajat-kebebasan-yang-memiliki-luasan-00333-satuan-persegi-di-bawah-kurva-dan-di-sebelah-kiri-t-score-tersebut)
+   * [No 5F](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#f-berapa-nilai-t-score-dengan-25-derajat-kebebasan-yang-memiliki-luasan-0125-satuan-persegi-di-bawah-kurva-dan-di-sebelah-kanan-t-score-tersebut)
+   * [No 5G](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#g-berapa-nilai-t-score-dengan-25-derajat-kebebasan-yang-memiliki-luasan-0125-satuan-persegi-di-bawah-kurva-dan-di-sebelah-kanan-t-score-tersebut)
+   * [No 5H](https://github.com/Chrstnkevin/Prak1_Probstat2023_C_5025211153/edit/main/README.md#h-berapa-nilai-t-score-dengan-23-derajat-kebebasan-yang-memiliki-luasan-00333-satuan-persegi-di-bawah-kurva-dan-di-luar-interval-antara-t-score-tersebut-dan-negatif-dari-nilai-t-score-tersebut)
+
 ## Soal No 1
 
 Probabilitas seorang bayi yang baru lahir berjenis kelamin laki-laki adalah 0,488.
@@ -439,3 +449,129 @@ variasi
 
 ## Soal No 5
 Kerjakanlah menggunakan distribusi T-Student
+
+
+##### A. Berapa probabilitas terjadinya suatu peristiwa acak X kurang dari -2,34 dengan 6 derajat kebebasan?
+Untuk menghitung probabilitas terjadinya suatu peristiwa acak X kurang dari -2,34 dengan 6 derajat kebebasan menggunakan distribusi T-Student, kita dapat menggunakan fungsi pt() 
+
+```
+pt(-2.34, 6, lower.tail = TRUE, log.p = FALSE)
+```
+Penjelasan dari codingan tersebut:
+- -2,34 merupakan nilai X yang ingin kita hitung probabilitasnya
+- 6 adalah derajat kebebasan distribusi T-Student
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236168896-056b5bad-9883-436a-84d8-9e99735da9be.png)
+
+
+##### B. Berapa probabilitas terjadinya suatu peristiwa acak X lebih dari 1,34 dengan 6 derajat kebebasan?
+Karena kita ingin menghitung probabilitas terjadinya X lebih dari 1,34, maka kita perlu mengurangi hasil dari fungsi pt() dengan 1 
+
+```
+1 - pt(1.34, 6, lower.tail = TRUE, log.p = FALSE)
+```
+Penjelasan dari codingan tersebut:
+- 1.34 merupakan nilai X yang ingin kita hitung probabilitasnya
+- 6 adalah derajat kebebasan distribusi T-Student
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236169726-3857d4e1-9afa-4616-b835-f49ef202055c.png)
+
+
+##### C. Berapa probabilitas terjadinya suatu peristiwa acak X kurang dari -1,23 atau lebih besar dari 1,23 dengan 3 derajat kebebasan?
+Karena kita ingin menghitung probabilitas terjadinya X kurang dari -1,23 atau lebih besar dari 1,23, maka kita perlu menghitung probabilitas untuk kedua peristiwa tersebut dan menjumlahkannya
+```
+pt(-1.23, 3) + (1 - pt(1.23, 3))
+```
+Penjelasan dari codingan tersebut:
+- 1.23 dan -1.23 merupakan nilai X yang ingin kita hitung probabilitasnya
+- 3 adalah derajat kebebasan distribusi T-Student
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236170927-89617663-8efe-4926-8a2e-32926d6fecd8.png)
+
+
+##### D. Berapa probabilitas terjadinya suatu peristiwa acak X berada di antara -0,94dan 0,94 dengan 14 derajat kebebasan?
+Karena kita ingin menghitung probabilitas terjadinya X di antara -0,94dan 0,94, maka kita perlu menghitung probabilitas untuk kedua peristiwa tersebut dan mengurangkannya
+```
+pt(0.94, 14) - pt(-0.94, 14)
+```
+Penjelasan dari codingan tersebut:
+- 0.94 dan -0.94 merupakan nilai X yang ingin kita hitung probabilitasnya
+- 14 adalah derajat kebebasan distribusi T-Student
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236173053-7215b076-a7a5-410e-8e6b-3c981ebc313e.png)
+
+
+##### E.  Berapa nilai t-score dengan 5 derajat kebebasan yang memiliki luasan 0,0333 satuan persegi di bawah kurva dan di sebelah kiri t-score tersebut?
+untuk mendapatkan luasan dibawah kurva dan di sebelah kiri t-score bisa menggunakan qt
+```
+qt(0.0333, 5, lower.tail = TRUE, log.p = FALSE)
+```
+Penjelasan dari codingan tersebut:
+- `qt()` adalah fungsi untuk menghitung nilai t-score berdasarkan distribusi T-Student.
+- `0.0333` adalah luasan yang diinginkan di bawah kurva dan di sebelah kiri t-score tersebut.
+- `5` adalah derajat kebebasan.
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236175197-7e842764-9260-428b-a346-f2ad18715008.png)
+
+
+##### F. Berapa nilai t-score dengan 25 derajat kebebasan yang memiliki luasan 0,125 satuan persegi di bawah kurva dan di sebelah kanan t-score tersebut?
+Karena kita mencari luasan di sebelah kanan t-score, maka kita perlu mengalikan luasan tersebut dengan 2 sehingga kita dapat mencari nilai t-score yang sesuai di distribusi T-Student.
+```
+qt(0.125*2, 25, lower.tail=FALSE)
+```
+Penjelasan dari codingan tersebut:
+- `qt()` adalah fungsi untuk menghitung nilai t-score berdasarkan distribusi T-Student.
+- `0.125*2` adalah luasan yang diinginkan di bawah kurva dan di sebelah kanan t-score tersebut.
+- `25` adalah derajat kebebasan.
+- `lower.tail=FALSE` menandakan bahwa kita mencari luasan di sebelah kanan t-score.
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236175820-1567eefb-cf0f-4499-83da-cd6baff5b760.png)
+
+
+##### G. Berapa nilai t-score dengan 25 derajat kebebasan yang memiliki luasan 0,125 satuan persegi di bawah kurva dan di sebelah kanan t-score tersebut?
+Karena kita mencari luasan di antara dua t-score, maka kita perlu menghitung luasan di bawah kurva di antara kedua t-score tersebut dan kemudian membagi luasan tersebut dengan 2 untuk mendapatkan luasan yang dicari di antara t-score tersebut dan negatif dari nilai t-score tersebut.
+```
+luasan = 0.75
+t_score1 = qt((1-luasan)/2, 11)
+t_score2 = -t_score1
+c(t_score1, t_score2)
+```
+Penjelasan dari codingan tersebut:
+- `(1-luasan)/2` adalah luasan yang diinginkan di bawah kurva pada satu sisi t-score.
+- `11` adalah derajat kebebasan.
+- `t_score1` adalah t-score yang dicari di sebelah kiri dari luasan.
+- `t_score2` adalah t-score yang dicari di sebelah kanan dari luasan.
+- `-t_score1` adalah nilai negatif dari t-score1.
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236177012-693cd8a8-3e88-45ca-b857-316b73d21fa6.png)
+
+
+##### H. Berapa nilai t-score dengan 23 derajat kebebasan yang memiliki luasan 0,0333 satuan persegi di bawah kurva dan di luar interval antara t-score tersebut dan negatif dari nilai t-score tersebut?
+Karena kita mencari luasan di luar interval antara dua t-score, maka kita perlu menghitung luasan di bawah kurva pada dua sisi t-score tersebut dan kemudian menjumlahkan kedua luasan tersebut. Luasan yang diinginkan adalah luasan yang tersisa di luar kedua t-score tersebut.
+```
+luasan = 0.0333
+t_score = qt(1-luasan, 23)
+c(qt(luasan/2, 23), qt(1-luasan/2, 23))
+if (t_score > 0) {
+  c(qt(1-luasan/2, 23, lower.tail=FALSE), t_score)
+} else {
+  c(t_score, qt(luasan/2, 23))
+}
+```
+Penjelasan dari codingan tersebut:
+- `qt()` adalah fungsi untuk menghitung nilai t-score berdasarkan distribusi T-Student.
+- `luasan/2` adalah luasan yang diinginkan di bawah kurva pada satu sisi t-score.
+- `1-luasan/2` adalah luasan yang diinginkan di bawah kurva pada sisi lain dari t-score.
+- `23` adalah derajat kebebasan.
+- `lower.tail=FALSE` menandakan bahwa kita mencari luasan di sebelah kanan t-score jika t-score positif dan di sebelah kiri t-score jika t-score negatif.
+- `if-else` digunakan untuk menentukan apakah t-score tersebut positif atau negatif sehingga kita dapat menentukan apakah mencari luasan di sebelah kanan atau sebelah kiri distribusi T-Student.
+
+###### OUTPUT
+![image](https://user-images.githubusercontent.com/97864068/236178436-733d4d95-128e-42b5-a971-c50801d97f23.png)
